@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Movie Recommender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=League+Spartan&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Futura">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'League Spartan', sans-serif;
+            color: #fff; /* White text */
+            background-color: #000; /* Black background */
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.5); /* Semi-transparent dark background */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-evenly; /* Evenly space tabs */
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px); /* Optional: Adds a blur effect */
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Avenir', sans-serif; /* Avenir Bold */
+            font-size: 24px; /* Bigger font size */
+            padding: 10px 30px; /* Larger clickable area */
+            border: 2px solid #ffd700; /* Yellow outline */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0 20px; /* Add horizontal spacing */
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700; /* Fill with yellow on hover */
+            color: #0a0a0a; /* Dark text on hover */
+        }
+
+        /* Main Content Container */
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure container takes at least the full viewport height */
+            padding: 100px 20px 20px; /* Add padding to account for the fixed navbar */
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
+            text-align: center;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-family: 'Futura', serif;
+            font-size: 48px;
+            margin: 0 0 20px;
+            color: #ffd700; /* Gold accent */
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 18px;
+            color: #ccc; /* Light gray text */
+            margin: 20px 0;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        /* Button Styling */
+        a.button {
+            background-color: #ffd700; /* Gold accent */
+            color: #0a0a0a; /* Dark text */
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 30px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #e6b800; /* Darker gold on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/input">Get Recommendations</a>
+        <a href="/about">About</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>About Movie Recommender</h1>
+        <p>
+            Movie Recommender is a website that helps you discover new movies based on your preferences. 
+            Simply enter the genre you're in the mood for and the movies you've already watched, and 
+            we'll recommend a list of movies tailored just for you!
+        </p>
+        <p>
+            Our recommendation system uses data from The Movie Database (TMDb) to provide accurate and 
+            up-to-date suggestions. Whether you're into action, comedy, drama, or something else, 
+            we've got you covered.
+        </p>
+        <a href="/" class="button">Back to Home</a>
+    </div>
+</body>
+</html>

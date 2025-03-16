@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Futura:wght@700&family=Avenir:wght@700&family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Serif+Text">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'League Spartan', sans-serif;
+            color: #fff; /* White text */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        /* Background Grid of Movie Posters */
+        .background-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+            grid-auto-rows: minmax(225px, 1fr); /* Consistent row height */
+            gap: 10px;
+            z-index: -1; /* Place behind content */
+            opacity: 0.5; /* Semi-transparent posters */
+        }
+
+        .background-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure posters fill the grid cells */
+            filter: grayscale(50%); /* Add a cinematic grayscale effect */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .background-grid img:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+            filter: grayscale(0%); /* Remove grayscale on hover */
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.7); /* Semi-transparent dark background */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-around; /* Evenly space tabs */
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Avenir', sans-serif; /* Avenir Bold */
+            font-size: 24px; /* Bigger font size */
+            padding: 10px 20px; /* Larger clickable area */
+            border: 2px solid #ffd700; /* Yellow outline */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700; /* Fill with yellow on hover */
+            color: #0a0a0a; /* Dark text on hover */
+        }
+
+        /* Container for Content */
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background: rgba(10, 10, 10, 0.7); /* Semi-transparent overlay */
+        }
+
+        /* Title and Subtitle */
+        h1 {
+            font-family: 'Futura', sans-serif; /* Futura Bold */
+            font-size: 64px;
+            margin: 0;
+            color: #ffd700; /* Gold accent */
+        }
+
+        p {
+            font-family: 'DM Serif Text', sans-serif; /* League Spartan */
+            font-size: 24px;
+            margin: 20px 0;
+            color: #ccc; /* Light gray text */
+        }
+
+        /* Button Styling */
+        a.button {
+            font-family: 'DM Serif Text', sans-serif; /* League Spartan */
+            background-color: #ffd700; /* Gold accent */
+            color: #0a0a0a; /* Dark text */
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #e6b800; /* Darker gold on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Grid of Movie Posters -->
+    <div class="background-grid">
+        <img src="https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg" alt="Movie Poster 1">
+        <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="Movie Poster 2">
+        <img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Movie Poster 3">
+        <img src="https://image.tmdb.org/t/p/w500/1Lh9LER4xRQ3INFFi2dfS2hpRwv.jpg" alt="Movie Poster 4">
+        <img src="https://image.tmdb.org/t/p/w500/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg" alt="Movie Poster 5">
+        <img src="https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" alt="Movie Poster 6">
+        <img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" alt="Movie Poster 7">
+        <img src="https://image.tmdb.org/t/p/w1280/ceG9VzoRAVGwivFU403Wc3AHRys.jpg" alt="Movie Poster 8">
+        <img src="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" alt="Movie Poster 9">
+	<img src="https://image.tmdb.org/t/p/w1280/ttN5D6GKOwKWHmCzDGctAvaNMAi.jpg" alt="Movie Poster 10">
+	<img src="https://image.tmdb.org/t/p/w1280/bL1mwXDnH5fCxqc4S2n40hoVyoe.jpg" alt="Movie Poster 11">
+	<img src="https://image.tmdb.org/t/p/w1280/jeyTQrNEpyE1LZIgVlswYh3sc34.jpg" alt="Movie Poster 12">
+	<img src="https://image.tmdb.org/t/p/w1280/7jEVqXC14bhfAzSPgr896dMdDv6.jpg" alt="Movie Poster 13">
+	<img src="https://image.tmdb.org/t/p/w1280/2JRyCKaRKyJAVpsIHeLvPw5nHmw.jpg" alt="Movie Poster 14">
+	<img src="https://image.tmdb.org/t/p/w1280/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg" alt="Movie Poster 15">
+	<img src="https://image.tmdb.org/t/p/w1280/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" alt="Movie Poster 16">
+	<img src="https://image.tmdb.org/t/p/w1280/kzJip9vndXYSKQHCgekrgqbnUrA.jpg" alt="Movie Poster 17">
+	<img src="https://image.tmdb.org/t/p/w1280/r3UKPGdQC5mPiA9bE9otM9CN4lW.jpg" alt="Movie Poster 18">
+	<img src="https://image.tmdb.org/t/p/w1280/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg" alt="Movie Poster 19">
+	<img src="https://image.tmdb.org/t/p/w1280/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg" alt="Movie Poster 20">
+	<img src="https://image.tmdb.org/t/p/w1280/8OKmBV5BUFzmozIC3pPWKHy17kx.jpg" alt="Movie Poster 21">
+	<img src="https://image.tmdb.org/t/p/w1280/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Movie Poster 22">
+	<img src="https://image.tmdb.org/t/p/w1280/w7pWcLaYQkbtRUn99K6ome0DblL.jpg" alt="Movie Poster 24">
+	<img src="https://image.tmdb.org/t/p/w1280/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" alt="Movie Poster 25">
+	<img src="https://image.tmdb.org/t/p/w1280/191nKfP0ehp3uIvWqgPbFmI4lv9.jpg" alt="Movie Poster 26">
+	<img src="https://image.tmdb.org/t/p/w1280/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg" alt="Movie Poster 27">
+	<img src="https://image.tmdb.org/t/p/w1280/hmGAF5NDoYB6S39UONevjHCESOI.jpg" alt="Movie Poster 28">
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/input">Get Recommendations</a>
+        <a href="/about">About</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div>
+            <h1>Welcome to Movie Recommender!</h1>
+            <p>Discover your next favorite movie.</p>
+            <a href="/input" class="button">Get Started</a>
+        </div>
+    </div>
+</body>
+</html>

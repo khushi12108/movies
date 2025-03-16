@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'League Spartan', sans-serif;
+    color: #fff; /* White text */
+    background-color: #000; /* Black background */
+    overflow: auto; /* Allow scrolling */
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.5); /* Semi-transparent dark background */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-evenly; /* Evenly space tabs */
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Optional: Adds a blur effect */
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Avenir', sans-serif; /* Avenir Bold */
+    font-size: 24px; /* Bigger font size */
+    padding: 10px 30px; /* Larger clickable area */
+    border: 2px solid #ffd700; /* Yellow outline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 20px; /* Add horizontal spacing */
+}
+
+.navbar a:hover {
+    background-color: #ffd700; /* Fill with yellow on hover */
+    color: #0a0a0a; /* Dark text on hover */
+}
+
+/* Main Content Container */
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure container takes at least the full viewport height */
+    padding: 100px 20px 20px; /* Add padding to account for the fixed navbar */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
+    text-align: center;
+}
+
+/* Title Styling */
+h1 {
+    font-family: 'DM Serif Text', serif;
+    font-size: 48px;
+    margin: 0 0 20px;
+    color: #ffd700; /* Gold accent */
+}
+
+/* Movie Grid Styling */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Individual Movie Styling */
+.movie {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.movie h3 {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 18px;
+    color: #fff; /* White text */
+    margin: 10px 0 5px;
+}
+
+.movie p {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 14px;
+    color: #ccc; /* Light gray text */
+    margin: 5px 0;
+}
+
+.movie .rating {
+    color: #ffd700; /* Gold color for rating */
+    font-weight: bold;
+}
+
+/* No Recommendations Message */
+.no-recommendations {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 20px;
+    color: #ccc; /* Light gray text */
+    margin: 20px 0;
+}
+
+/* Button Styling */
+a.button {
+    background-color: #ffd700; /* Gold accent */
+    color: #0a0a0a; /* Dark text */
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #e6b800; /* Darker gold on hover */
+}
